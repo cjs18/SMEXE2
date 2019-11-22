@@ -1,0 +1,37 @@
+Programación Orientada a Objetos
+
+Práctica Grupal Ordinaria
+----------------------------------
+ 
+Indice
+
+0) Miembros
+
+1) Login
+
+2) Expedientes
+3) Comentarios
+
+-----------------------------------
+
+0) Miembros
+
+Desco Parada, Carlos | 39465365X
+
+Jurado Santos, Claudia | 51001371K
+
+Viggiano, Franco Nicola | YA8100991
+
+
+
+1)Login
+
+Este ha sido creado solo de forma visual, no tiene ningún tipo de funcionalidad ya que se dijo que no era necesario implementarlo. 
+
+
+
+2)Expedientes:
+Hay expedientes guardados en los conductores con número de carnet 8,10 y 11.
+
+3)Comentarios:
+ Debido a la falta de tiempo (dado que hemos estado muy ocupados con exámenes y trabajos) la práctica entregada no demuestra al 100% lo que somos capaces de hacer. Ya que hemos tenido que limitar las funcionalidades implementadas y el apartado visual y de interacción con el usuario a lo más necesario y lo que nos ha dado tiempo. Entendemos que no se quiera que se deje esta práctica para fechas cercanas a la entrega, pero teniendo tantos exámenes y trabajos (incluidos los de la propia asignatura) que quitan tanto tiempo no tenemos otra opción.
