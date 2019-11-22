@@ -1,5 +1,12 @@
 package Practica;
 
+
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -8,7 +15,6 @@ import java.util.ArrayList;
  *
  * @author Franco_Viggiano
  */
-
 public class Expediente implements java.io.Serializable {
     private Alegacion alegacionPrincipal;
     private Denuncia denuncia;
@@ -18,23 +24,25 @@ public class Expediente implements java.io.Serializable {
     private int numExp;
     private boolean pagado;
     
-    //This Function is a constructor, it creates a Expediente object. and add it to a list of dossiers. 
+    //Hacer un ArrayList de expedientes
     
     public Expediente(Denuncia denuncia){
-        this.notifPrinc = new Notificacion(denuncia.getFecha(),denuncia.getImporte(),null,denuncia.getCausa());
-        numExp = denuncia.getCodigo();
-        this.estado=Estado.EJECUCION;
-        this.denuncia = denuncia;
-        anadirExpediente();
+    this.notifPrinc = new Notificacion(denuncia.getFecha(),denuncia.getImporte(),null,denuncia.getCausa());
+    numExp = denuncia.getCodigo();
+    this.estado=Estado.EJECUCION;
+    this.denuncia = denuncia;
+    anadirExpediente();
     }
     
     // GETTERS SETTERS
     public void setDenuncia(Denuncia denuncia){
-        this.denuncia = new Denuncia(denuncia);
+    this.denuncia = new Denuncia(denuncia);
     }
     
+
+    
     public void setAlegacion(String defensa){
-        this.alegacionPrincipal = new Alegacion(defensa);
+    this.alegacionPrincipal = new Alegacion(defensa);
     }
 
     public Alegacion getAlegacionPrincipal() {
@@ -56,28 +64,27 @@ public class Expediente implements java.io.Serializable {
     public  int getNumExp() {
         return numExp;
     }
-
-    //
     
-    // This function delete the folders 
     public void eliminarAlegacion(){
-        this.alegacionPrincipal = null;
+    this.alegacionPrincipal = null;
     }
+
     
     private void anadirExpediente(){
-        listaExpedientes.add(this);
-        actualizarFichero();
+    listaExpedientes.add(this);
+    actualizarFichero();
     }
+    
     
     public static ArrayList<Expediente> getListaExpedientes() {
         return listaExpedientes;
     }
 
     public void setPagado(){
-        this.pagado=true;
+     this.pagado=true;
     }
     public boolean getPagado(){
-        return this.pagado;
+    return this.pagado;
     }
 
     //Metodos
