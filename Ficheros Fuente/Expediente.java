@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @authors Franco_Viggiano
  */
 
-public class Expediente implements java.io.Serializable {
+public class Expediente {
     private Alegacion alegacionPrincipal;
     private Denuncia denuncia;
     private Notificacion notifPrinc;
@@ -56,9 +56,7 @@ public class Expediente implements java.io.Serializable {
     public  int getNumExp() {
         return numExp;
     }
-
-    /
-    
+        
     // This function delete the folders 
     public void eliminarAlegacion(){
         this.alegacionPrincipal = null;
@@ -115,9 +113,6 @@ public class Expediente implements java.io.Serializable {
                     expedientesInconclusos.add(e);
                 }
             }
-           
-        	return expedientesInconclusos;
-    	}
         return expedientesInconclusos;
     }
        
