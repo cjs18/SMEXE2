@@ -1,4 +1,4 @@
-package Practica;
+package practica;
 
 import java.io.*;
 import java.time.LocalDate;
@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Franco_Viggiano
+ * @authors Franco_Viggiano
  */
 
 public class Expediente implements java.io.Serializable {
@@ -57,7 +57,7 @@ public class Expediente implements java.io.Serializable {
         return numExp;
     }
 
-    //
+    /
     
     // This function delete the folders 
     public void eliminarAlegacion(){
@@ -80,43 +80,44 @@ public class Expediente implements java.io.Serializable {
         return this.pagado;
     }
 
-    //Metodos
+    //methods
     
     public static Expediente busquedaExpediente(int nexp){
-    for (Expediente e: listaExpedientes){
-        if (nexp == e.getNumExp())
-            return e;
-    }
-    return null;
-    }
+	    for (Expediente e: listaExpedientes){
+	        if (nexp == e.getNumExp())
+	            return e;
+	    }
+	    return null;
+	}
     
     public void comprobarAlegacion() {
-        LocalDate aux1 = LocalDate.now();  //Fecha a la hora de comprobar
-        LocalDate aux2 = denuncia.getFecha();   //Fecha de la denuncia
-        if (aux1.isAfter(aux2)) {
+        LocalDate  date1 = LocalDate.now();  //Fecha a la hora de comprobar
+        LocalDate  date2 = denuncia.getFecha();   //Fecha de la denuncia
+        if (date1.isAfter(date2)) {
             this.estado = Estado.SANCIONADO;
-        } else if (aux1.isBefore(aux2) || aux1.isEqual(aux2)) {
-            if (alegacionPrincipal.getAceptada()) {
+        } 
+        else if (date1.isBefore(date2) || date1.isEqual(date2)) {
+            if (alegacionPrincipal.getAceptada()){
                 this.estado = Estado.SOBRESEIDO;                
-            } else {
+            }
+            else {
                 this.estado = Estado.EJECUCION;
             }
         }
     }
-    
-    
+        
     public ArrayList envioMensual() {
         ArrayList<Expediente> expedientesInconclusos = null;
-        LocalDate ahora = LocalDate.now();
-        if (ahora.getDayOfMonth() == 1) {
+        LocalDate now = LocalDate.now();
+        if (now.getDayOfMonth() == 1) {
             for (Expediente e : listaExpedientes) {
                 if (e.estado.equals(Estado.SOBRESEIDO) || e.estado.equals(Estado.SANCIONADO)) {
                     expedientesInconclusos.add(e);
                 }
             }
            
-        return expedientesInconclusos;
-    }
+        	return expedientesInconclusos;
+    	}
         return expedientesInconclusos;
     }
        
@@ -141,44 +142,49 @@ public class Expediente implements java.io.Serializable {
             e.printStackTrace();
         }
     }
-   public static ArrayList<Expediente> buscarExpedienteConductor(int numCarnet){
-       ArrayList<Expediente> lista= new ArrayList();
-       for(Expediente e : listaExpedientes){
-           System.out.println(e.getDenuncia().getNumeroCarnet());
-       if(e.getDenuncia().getNumeroCarnet() == numCarnet)
-          lista.add(e);
-       }
-       System.out.println(lista);
-       return lista;
-       }
 
-   public void pagarMulta(){
-       setPagado();
-       this.estado = Estado.SOBRESEIDO;
-   }
-    public static void cargarExpediente(){
-    listaExpedientes = new ArrayList();
-    ArrayList<Expediente> listaaux = new ArrayList<>();
-    boolean haysig = true;
-    try{
-    FileInputStream fis = new FileInputStream("Expedientes.bin");
-    ObjectInputStream input = new ObjectInputStream(fis);
-    while(haysig){
-      Expediente e = (Expediente) input.readObject();
-      if(e != null)
-         listaaux.add(e);
-      else
-         haysig = false;
-   }
-    }
-    catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            //e.printStackTrace();
+    public static ArrayList<Expediente> buscarExpedienteConductor(int numCarnet){
+        ArrayList<Expediente> files= new ArrayList();
+        for(Expediente e : listaExpedientes){
+        	System.out.println(e.getDenuncia().getNumeroCarnet());
+        	if(e.getDenuncia().getNumeroCarnet() == numCarnet){
+          		files.add(e);
+          	}
         }
-    catch(IOException | ClassNotFoundException e){
-   //System.out.println(e.printStackTrace());
-}
-    listaExpedientes.addAll(listaaux);
+        System.out.println(files);
+        return files;
+    }
+
+    public void pagarMulta(){
+	    setPagado();
+	    this.estado = Estado.SOBRESEIDO;
+   	}
+
+    public static void cargarExpediente(){
+	    listaExpedientes = new ArrayList(); // porque hacemos este array
+	    ArrayList<Expediente> listfiles = new ArrayList<>();
+	    boolean haysig = true;
+	    try{
+		    FileInputStream file = new FileInputStream("FIlES.bin");
+		    ObjectInputStream input = new ObjectInputStream(file);
+		    while(haysig){
+			    Expediente e = (Expediente) input.readObject();
+			    if(e != null){
+			    	listfiles.add(e);
+			    }
+			    else{
+			    	haysig = false;	   
+			    }
+			}
+			file.close();
+		}catch (FileNotFoundException e) {
+            e.printStackTrace();
+    	}catch(IOException e){
+   			System.out.println(e.printStackTrace());
+		}catch(ClassNotFoundException e){
+   			System.out.println("Error");
+		}
+    	listaExpedientes.addAll(listaaux);
     }
 
     @Override
@@ -187,10 +193,7 @@ public class Expediente implements java.io.Serializable {
     }
 
     public void aceptarAlegacion(){
-    this.estado=Estado.SOBRESEIDO;
-   ;
-    
+    	this.estado=Estado.SOBRESEIDO;
     }
-    
-    
+  
 }
