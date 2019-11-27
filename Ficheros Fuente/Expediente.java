@@ -41,6 +41,7 @@ EnvioMensual = Monthly Shipping
 SOBRESEIDO = DISMISSED
 EJECUCION = EXECUTION
 SANCIONADO = SANCTIONED
+haysig (Hay siguiente) = There is another
 
 */
 
@@ -139,7 +140,9 @@ public class Expediente {
 	    return null;
 	}
     
-    //
+    //This method should check the case file and change the status to "SANCIONADO" if the deadline for allegations finished
+    //Or would change it to "SOBRESEIDO" if the allegations presented are accepted
+    //If nothing of the above happened it will stay as "EJECUCION"
     public void comprobarAlegacion() {
         LocalDate  date1 = LocalDate.now();  //Local date in order to check
         LocalDate  date2 = denuncia.getFecha();   //Date of the complaint

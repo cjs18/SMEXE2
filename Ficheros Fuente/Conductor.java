@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Practica;
 
 
@@ -12,6 +7,32 @@ package Practica;
  *
  * @authors Carlos Desco Parada
  */
+
+/* LANGUAGE NOTES
+As we can see the variables and methods names are in Spanish so in order to make it more accesible
+but not changing the names in order of the other classes to work we will provide some translations
+so more people can understand:
+
+Conductor = Driver
+Nombre = Name
+Apellidos = Surnames
+Direccion = Adress
+Gafas = Glasses
+listaConductores = Drivers list
+Carnet (de conducir) = (Driving) license
+Anadir = Add
+Busqueda = Search
+Cargar = Load
+(Conductor) habitual = Usual (Driver)
+Actualizar = Update
+Fichero = File
+Numero (Número) = Number
+Matricula = Registration plate
+Coche = Car
+Camion = Truck
+
+*/
+
 import java.util.ArrayList;
 import java.util.Objects;
 import java.io.*;
