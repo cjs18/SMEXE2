@@ -54,7 +54,7 @@ public class Expediente {
     private int numExp;
     private boolean pagado;
     
-    //This Method is a constructor, it creates a Expediente object. and add it to a list of dossiers. 
+    //This method is a constructor, it creates a Expediente object and add it to a list of dossiers. 
     
     public Expediente(Denuncia denuncia){
         this.notifPrinc = new Notificacion(denuncia.getFecha(),denuncia.getImporte(),null,denuncia.getCausa());
@@ -185,7 +185,7 @@ public class Expediente {
                         System.out.println("Saved");
                     } catch (NotSerializableException err) {
                         System.out.println("Non serializable object");
-                        err .printStackTrace();
+                        err.printStackTrace();
                     }
                 }
             } catch (IOException e) {
