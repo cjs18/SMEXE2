@@ -4,9 +4,9 @@ import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-/**
- *
- * @authors Franco_Viggiano
+/* Description of the class
+It's used to manage case files and a static list that contains all the case files in the system,
+also has methods for Loading and Updating a binary file that stores this information
  */
 
 
@@ -149,7 +149,7 @@ public class Expediente {
         if (date1.isAfter(date2)) {
             this.estado = Estado.SANCIONADO;
         } 
-        else if (date1.isBefore(date2) || date1.isEqual(date2)) {
+        else{
             if (alegacionPrincipal.getAceptada()){
                 this.estado = Estado.SOBRESEIDO;                
             }
