@@ -1,9 +1,5 @@
 package practica;
 
-import java.io.*;
-import java.time.LocalDate;
-import java.util.ArrayList;
-
 /* Description of the class
 It's used to manage case files and a static list that contains all the case files in the system,
 also has methods for Loading and Updating a binary file that stores this information
@@ -45,6 +41,11 @@ haysig (Hay siguiente) = There is another
 
 */
 
+import java.io.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
+
+
 public class Expediente {
     private Alegacion alegacionPrincipal;
     private Denuncia denuncia;
@@ -54,8 +55,7 @@ public class Expediente {
     private int numExp;
     private boolean pagado;
     
-    //This method is a constructor, it creates a Expediente object and add it to a list of dossiers. 
-    
+    //This method is a constructor, it creates a Expediente object and add it to the list of case files. 
     public Expediente(Denuncia denuncia){
         this.notifPrinc = new Notificacion(denuncia.getFecha(),denuncia.getImporte(),null,denuncia.getCausa());
         numExp = denuncia.getCodigo();
